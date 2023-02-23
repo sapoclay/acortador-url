@@ -1,4 +1,4 @@
-# acortador-url
+# Acortador de URL
 Esto es un acortador de URL que se puede utilizar en localhost o en un servidor.
 
 ![acortador-url](https://user-images.githubusercontent.com/6242827/220885309-0bed0044-75c6-425e-8186-fc6d30a4da4f.png)
