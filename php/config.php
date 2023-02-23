@@ -1,11 +1,9 @@
 <?php 
-/* si está trabajando en localhost, entonces no necesita cambiar nada
-       pero si está pensando en subirlo al servidor en vivo, entonces tiene que editar algo
-    1. Pegue la URL de su sitio web con una barra diagonal (/) en la variable de dominio, no necesita
-       para escribir https://wwww. antes del nombre de dominio si tiene configurada la redirección de dominio
-    2. Cambie los valores de usuario, pase, db en consecuencia mencionados en los comentarios a continuación
-    3. Vaya al archivo JavaScript y busque esta palabra clave - dejar dominio - luego pegue su URL allí
-    4. Después de todos los cambios, debe esperar porque los cambios guardados en el archivo javascript pueden tardar en reflejarse */
+/*  1. Pega la URL de tu sitio web con una barra diagonal (/) al final de la variable de dominio, no necesitas
+       escribir https://wwww. antes del nombre de dominio si tiene configurada la redirección de dominio
+    2. Cambia los valores de usuario, pass y db en consecuencia mencionados en los comentarios a continuación
+    3. Será necesario dirigirte al archivo JavaScript y buscar allí el dominio. Después pega tu URL allí
+    4. Después de todos los cambios, debes esperar y limpiar la caché, porque los cambios guardados en el archivo javascript pueden tardar en reflejarse */
 
     $domain = "localhost/url/"; // entreunosyceros.net/
     $host = "localhost";
