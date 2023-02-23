@@ -1,0 +1,327 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Comic Sans MS', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #d38afd, #6100bb);
+  padding: 0 10px;
+}
+.wrapper{
+  background: #fff;
+  padding: 20px;
+  width: 900px;
+  border-radius: 5px;
+  border: 5px solid #000;
+}
+::selection{
+  background: rgba(120, 23, 184, 0.3);
+}
+.wrapper form{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+form .url-icon{
+  position: absolute;
+  width: 50px;
+  text-align: center;
+  font-size: 23px;
+  color: #c4c4c4;
+  pointer-events: none;
+}
+form input:valid ~ .url-icon{
+  color: #710db4;
+}
+form input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 0 120px 0 45px;
+  font-size: 20px;
+  caret-color: #9520b2;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.1s ease;
+}
+form input:valid{
+  border-color: #4c20b2;
+}
+form input::placeholder{
+  color: #c4c4c4;
+}
+form input:focus::placeholder{
+  color: #d9d9d9;
+}
+form button{
+  position: absolute;
+  right: 6px;
+  padding: 5px 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background: #5820b2;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+form button:hover{
+  background: #6000fc;
+}
+.wrapper form button{
+  opacity: 0;
+  pointer-events: none;
+}
+.wrapper form input:valid ~ button{
+  opacity: 1;
+  pointer-events: auto;
+}
+.wrapper a{
+  color: #000;
+}
+
+.wrapper .statistics{
+  margin: 20px 0;
+  display: flex;
+  padding-right: 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+.statistics span{
+  font-size: 17px;
+}
+.statistics span span{
+  font-weight: 500;
+}
+.statistics a:hover{
+  color: #20B2AA;
+}
+
+.wrapper .urls-area{
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.urls-area::-webkit-scrollbar{
+  width: 0px;
+}
+.urls-area :is(.title, .data){
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.urls-area li{
+  width: 100%;
+  list-style: none;
+  border-right: 1px solid #ddd;
+}
+.urls-area li:last-child{
+  border-right: 0px;
+}
+.urls-area .title li{
+  text-align: center;
+  background: #f2f2f2;
+  padding: 10px 0;
+}
+.urls-area .data li{
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-all;
+}
+.urls-area .data li:last-child a{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.urls-area .data li a:hover{
+  color: #20B2AA;
+  text-decoration: underline;
+}
+.urls-area .data li:last-child a:hover{
+  text-decoration: none;
+}
+.urls-area .data:nth-child(odd){
+  background: #f2f2f2;
+}
+.urls-area li:nth-child(1){
+  max-width: 37%;
+}
+.urls-area li:nth-child(2){
+  max-width: 32%;
+}
+.urls-area li:nth-child(3){
+  max-width: 8%;
+}
+.urls-area li:nth-child(4){
+  max-width: 11%;
+}
+.data > li:nth-child(4) > a{
+  font-size: 10px;
+  text-decoration: none;
+}
+.urls-area li:nth-child(5){
+  max-width: 12%;
+}
+.urls-area li:nth-child(5) > a{
+  font-size: 10px;
+}
+
+.blur-effect{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(2px);
+  background: rgba(0,0,0,0.01);
+  display: none;
+}
+.popup-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #fff;
+  padding: 25px;
+  max-width: 480px;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.popup-box.show{
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popup-box .info-box{
+  color: #280f57;
+  background: #bef4f1;
+  border: 1px solid #7de8e3;
+  padding: 10px;
+  text-align: center;
+  font-size: 17px;
+  border-radius: 5px;
+}
+.popup-box .info-box.error{
+  color: #721c24;
+  background: #f8d7da;
+  border-color: #f5c6cb;
+}
+.popup-box form{
+  margin-top: 10px;
+  position: relative;
+}
+.popup-box form label{
+  font-size: 18px;
+}
+.popup-box form .copy-icon{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-100%);
+  font-size: 20px;
+  cursor: pointer;
+}
+.copy-icon:hover{
+  color: #20B2AA;
+}
+.popup-box form input{
+  height: 45px;
+  padding: 0 35px 0 15px;
+  margin-top: 3px;
+  border: 1px solid #ccc;
+}
+.popup-box form input:focus{
+  border-color: #20B2AA;
+}
+.popup-box form button{
+  width: 100%;
+  height: 45px;
+  position: relative;
+  right: 0;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/*Título*/
+.titulo {
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  font: normal 38px / normal "Warnes", Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  white-space: pre;
+  text-shadow: 0 0 10px rgb(255, 0, 0), 0 0 20px rgba(255, 0, 0),
+    0 0 30px rgba(255, 0, 0), 0 0 40px #727272, 0 0 70px #727272,
+    0 0 80px #4e4e4e, 0 0 100px #2b2b2b;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.titulo:hover {
+  text-shadow: 0 0 10px rgb(69, 0, 109), 0 0 20px rgb(73, 0, 95),
+    0 0 30px rgb(57, 0, 68), 0 0 40px #580054, 0 0 70px #000000,
+    0 0 80px #000000, 0 0 100px #000000;
+}
+
+/*Botón copiar*/
+.copy-button {
+  background-color: #a200ff; /* Color de fondo verde */
+  color: white; /* Texto en blanco */
+  border: none; /* Sin borde */
+  padding: 10px 10px; /* Espacio de relleno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Mostrar como un elemento de línea */
+  font-size: 12px; /* Tamaño de fuente */
+  margin: 10px 0; /* Margen superior e inferior */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  border-radius: 15%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media (max-width: 768px) {
+  .copy-button  {
+    padding: 3px 3px;
+    font-size: 10px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+/*Botón copiado*/
+.copied {
+  background-color: #2c0074;
+}
+
+/* Después de 3 segundos, eliminar la clase "copied" */
+.copied.remove:after {
+  content: 'Copiar';
+  background-color: #a200ff;
+}
