@@ -315,7 +315,7 @@ form button:hover{
   }
 }
 
-/*Botón copiado*/
+/* Botón copiado */
 .copied {
   background-color: #2c0074;
 }
@@ -325,3 +325,4 @@ form button:hover{
   content: 'Copiar';
   background-color: #a200ff;
 }
+ 
