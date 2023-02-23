@@ -23,8 +23,8 @@ shortenBtn.addEventListener("click", () => {
                 blurEffect.style.display = "block";
                 popupBox.classList.add("show");
 
-                // Pega aquí tu dominio: entreunosyceros.net/
-                const domain = "acortador.entreunosyceros.net/";
+                // ESCRIBE AQUÍ TU DOMINIO aquí tu dominio: entreunosyceros.net/
+                const domain = "localhost/url/";
                 shortenURL.value = domain + data;
 
                 copyIcon.addEventListener("click", () => {
