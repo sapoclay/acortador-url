@@ -1,4 +1,5 @@
 <?php
+
 $sql2 = mysqli_query($conn, "SELECT * FROM url ORDER BY id DESC");
 
 if (mysqli_num_rows($sql2) > 0) {
@@ -37,4 +38,6 @@ if (mysqli_num_rows($sql2) > 0) {
             </div>
         <?php endwhile; ?>
     </div>
-<?php } ?>
+<?php 
+} 
+?>
