@@ -28,7 +28,7 @@
 
   <div class="blur-effect"></div>
   <div class="popup-box">
-    <div class="info-box">Tu URL acortada está lista. Puedes editar la URL corta ahora, pero una vez se guarde ya no podrás editarla.</div>
+    <div class="info-box">Tu URL acortada está lista.</div>
     <form action="#" autocomplete="off">
       <label>Edita tu URL corta</label>
       <input type="text" class="shorten-url" spellcheck="false" required>
